@@ -5,6 +5,7 @@ public class Grades {
         Scanner console = new Scanner (System.in);
 
         double totalPoints = 0;
+        double totalPointsEarned = 0;
         int gradeCount = 0;
 
         System.out.println ("What do you want to do?");
@@ -17,14 +18,22 @@ public class Grades {
         int x = stringScanner.nextInt();
         
         if (x == 1) {
-            System.out.print ("Type the grade you want added: ");
+            System.out.print ("Type the total amount of points of the assignment: ");
+            double newGradeTotal = Double.parseDouble(console.nextLine());
+            totalPoints = totalPoints + newGradeTotal;
+            System.out.println("Added...");
+            System.out.print ("Type the total amount of points you earned for the assignment: ");
+            double newGradeEarned = Double.parseDouble(console.nextLine());
+            totalPointsEarned = totalPointsEarned + newGradeEarned;
+            System.out.println("Added...");
 
-            String gradeLine = console.nextLine();
-            double newGrade = Double.parseDouble(gradeLine);
+            if (((totalPointsEarned/totalPoints) * 100) > 90) {
+                System.out.println("Nice Job! You earned higher than a 90% on this assignment.");
+            }
 
-            totalPoints = totalPoints + newGrade;
+
+
             gradeCount = gradeCount + 1;
-            System.out.println("Added " + newGrade + "%");
         } else if (x == 2) {
 
         } else {
